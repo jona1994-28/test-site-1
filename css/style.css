@@ -1,0 +1,362 @@
+:root {    /* Los que empiezan con : se llaman pseudoselector. root es un pseudoelemento. Es una forma de seleccionar variables. */ 
+       --blanco: #ffffff; 
+       --negro: #000000;
+       --primario: rgba(255,193,7,1);
+       --secundario: #00a783;
+       --gris: #757575;
+       --grisClaro: #DFE9F3;
+}
+
+/* Globales */
+
+html {                          /* Hoja en cascada, siempre en cuando sea el mismo selector */
+       font-size: 62.5%;            /* se utiliza el font-size: 62.5% para que 1rem equivalga a 10px */
+       box-sizing: border-box;      /* Hack para Box Model */
+       scroll-snap-type: y mandatory;    /* Va a hacer scroll de arriba hacia abajo con y.  Si quiero hacer de izq a der uso la x.  */
+}
+
+/* Scroll Snap */
+/* .servicios,
+.-bgegacion-principal, .formulario{ 
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+} */
+
+*, *:before, *:after {              /* El asterisco es un selector que selecciona todos los elementos del HTML. Es un selector universal */
+    box-sizing: unset;            /* :after (Coloca info despues del elemento) :before (Coloca info antes del elemento) No existe, son Pseudoelementos */
+}
+/* Establece el ancho y el alto total de un elemento */
+
+body{
+    font-size: 16px; /* 1rem= 10px */
+    font-family: 'Krub', sans-serif;
+    background-image: linear-gradient(to top, var(--grisClaro) 0%, var(--blanco) 100%);     /* DEGRADADO DE Abajo hacia Arriba */
+    margin: 0;
+}
+
+/* Tipografia */
+
+.titulo{
+    font-size: 3.8rem;
+}
+
+h1 span {                   /* te cambia el tamaño del texto. Unidades de medida px,rem,em*/
+    font-size: 2rem;
+}
+
+.subtitulo{
+    font-size: 3rem;
+}
+
+h2 span {
+    font-size: 2rem;
+}
+
+h1,h2,h3{
+    text-align: center;  /* alineacion del texto */
+}
+
+.titulo-2 {             /* Mis servicios */
+    font-size: 2.8rem;
+}
+
+.titulo-3 {             /* Diseño web/Aplicaciones Web/E-commerce */
+    font-size: 1.8rem;
+}
+
+.contenedor {
+    margin: 0 auto;
+    max-width: 120rem;        /*  120rem:1200px como maximo                 max-width: 120rem; */
+/*  margin-top:0;
+    margin-right: auto;     /* margin: 0 auto 0 auto O  0 auto (queda mas corto) */
+ /* margin-bottom:0;
+    margin-left:auto; */
+}
+
+
+/* Navegación principal */
+
+.nav-bg {
+    background-color: var(--secundario);  /* color de fondo */      
+}
+
+.navegacion-principal {
+    /*   background-color: var(--primario);  /* color de fondo */
+     /* display: block;  */
+     /* 1rem equivale a 10px */
+     display: flex;             /* Los elementos se muestran de izquierda a derecha */
+     justify-content: space-around; /* forma de centrar horizonatalmente */
+     flex-direction: column;
+     text-align: center;
+}
+
+@media (min-width: 807px ) {         /* De 807px para arriba será el código CSS que se va a aplicar */
+        .navegacion-principal{      
+        flex-direction: row;
+    } 
+}
+
+/* @media (min-width: 768px)      /* Esto es para una tablet */
+/* @media (min-width: 480px)      /* Esto es para celulares */
+/* @media (min-width: 1140px)      /* Esto es para una laptop y una computadora de escritorio*/
+
+.navegacion-principal a {
+    color: var(--blanco);
+    text-decoration: none;  /* text-decoration: underline es por default */
+    font-size: 2rem;
+    font-weight: bold;      /* indica el peso o el grueso de la letra */
+    padding: 1rem; 
+}  
+
+.navegacion-principal a:hover {               /* A hover se le conoce como Pseudoclase */
+    background-color: var(--primario);
+    color: var(--negro);
+}
+
+/* Hero */
+
+.hero {
+    background-image: url(../img/hero.jpg);  
+    background-repeat: no-repeat;       /*  define como se repiten los fondos del documento. En este caso no se repite el fondo. */
+    background-size: cover;             /* Especifica el tamaño de la imagen de fondo */
+    height: 450px;                         /* Altura */
+    position: relative;      /* Siempre el padre debe tener ésta posición para que el hijo se posicione de forma absoluta. */
+    margin-bottom: 2rem;
+}
+
+.contenido-hero {
+ position: absolute;            
+ background-color: rgba(0,0,0, .5);      /* con rgba(0,0,0) en este caso el contenido se pone en negro y si queremos que nuestra imagen sea transparente ponemos rgba(0,0,0, .7) */
+ background-color: rgb (0 0 0 / 70%);
+ width: 100%;
+ height: 100%;
+
+ display: flex;       /* Todos los hijos los va a posicionar de izquierda a derecha */ /* Alineamos horizontalmente con justify-content y alineamos verticalmente con align-items */
+ flex-direction: column; /* Esto va a hacer que el contenido esté de arriba hacia abajo */
+ align-items: center;
+ justify-content: center;
+}
+ /* LO DE ABAJO ES OTRA MANERA. */
+ /* bottom: 0;
+ left: 0; 
+ top: 0;
+ right: 0;  */       /* ESTO ES PARA QUE TOME TODO EL CONTENIDO SEGÚN LAS COORDENADAS. */
+
+.contenido-hero h1 {
+ color: var(--blanco);
+}
+
+.contenido-hero h2,
+.contenido-hero p {
+     color: var(--blanco);
+}
+
+.contenido-hero .ubicacion{
+ display: flex;
+ align-items: flex-end;
+}
+
+
+.boton{             
+    background-color: var(--secundario);
+    color: var(--blanco);
+    padding: 1rem 3rem 1rem 3rem;
+    margin-top: 1rem;
+    font-size: 2rem;
+    text-decoration: none; /* Para sacarle lo subrayado */
+    text-transform: uppercase; /* Para poner la letra en mayuscula */
+    font-weight: bold;
+    border-radius: .5rem; /* Le da la forma circular  */
+    width: 20%;                         /* El boton de la parte superior tenemos un width del 90% */
+    text-align: center; 
+    border: none;
+}
+
+@media (min-width: 768px ) {
+    .boton{
+            width: auto;             /* Se reinicia el valor */
+    } 
+}
+
+.boton:hover{       /* Cuando te colocas sobre cualquier elemento. */
+    cursor: pointer;    /* Nos regresa la mano en nuestros botones. */
+}
+
+.sombra{
+    box-shadow: 0px 5px 15px 0px rgba(107,107,107,0.49);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+/* Utilidades */
+
+.w-sm-100 {
+    width: 90%;
+}
+
+@media (min-width: 768px) {
+    .w-sm-100 {
+            width: auto;
+    } 
+    
+ }
+
+.flex {
+    display: flex;
+}
+
+.alinear-derecha {
+    justify-content: flex-end;
+}
+
+
+/* Servicios */
+@media (min-width: 768px) {             
+    .servicios{
+        display: grid;
+        grid-template-columns: 33.3% 33.3% 33.3%;       /* 1fr 1fr 1fr es lo mismo. */
+        column-gap: 2rem;       /* Sirve para la separaciòn de columnas*/ 
+    }
+ }
+
+.servicio{
+    display:flex;
+    flex-direction: column;     /* Nos cambia la dirección */
+    align-items: center;        /* Nos centra el contenido */
+}
+
+.servicio h3{
+       color: var(--secundario); 
+}
+
+.servicios p{
+    line-height: 2;     /* Nos determina el interlineado del texto */
+    
+}
+
+.servicio .iconos{
+    height: 15rem;      /* Altura de 150px */
+    width: 15rem;       /* Anchura de 150px */    
+    background-color: var(--primario);  /* Color de fondo */
+    border-radius: 50%;                 /* Para determinar los bordes de la figura */
+    display: flex;  /* Coloca los elementos uno frente al otro. Este nos da acceso a justify-content*/
+    justify-content: space-evenly;
+    align-items: center;        /* Te permite alinear los items verticalmente*/
+}
+
+/* Contacto y Formulario */
+
+.contacto h2{
+    align-items: center;
+}
+
+.formulario{
+    background-color: var(--gris);     /* Color de fondo: gris */
+    width: min(60rem, 100%);        /* Utilizar el valor más pequeño */ /* De 1160px que mide de ancho el formulario, te toma 600px. */
+    margin: 0 auto; /* Para centrarlo horizontalmente */
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+.formulario fieldset{
+    border: none;           /* Saca la linea por default del navegador */
+}
+
+.formulario legend{
+    text-align: center;
+    font-size: 1.8rem;      /* Va a ser un poco más grande */
+    text-transform: uppercase; /* Me lo transforma en mayúscula al texto */
+    font-weight: 700;           /* Para que este en negrita */
+    margin-bottom: 2rem;         /* Separa un poco el texto del primer input */
+    color: var(--primario);
+}
+
+
+/* Enfoques por módulos  */
+@media (min-width: 768px) { 
+    .contenedor-campos{
+        display: grid;      /* Aplico grid por las columnas */
+        grid-template-columns: 50% 50%;     /* Te crea dos columnas iguales. Lo usamos para definir las areas de nuestras columnas */
+        grid-template-rows: auto auto 26rem;
+        column-gap: 1.5rem;   /* Separa columnas */
+    }
+    .campo:nth-child(3),                /* El campo que esta en la posición 3 el cual es correo. Se utiliza el nth-child para ejecutar dicha acción. */
+    .campo:nth-child(4)                /* El campo que esta en la posición 4 el cual es mensaje. Se utiliza el nth-child para ejecutar dicha acción. */ 
+                         {            
+        grid-column: 1 / 3;     /* Esto quiere decir que vaya de la columna 1 a la 3. Te indica el posicionamiento */
+    }
+ }
+
+.campo{         
+      margin-bottom: 1rem;
+}
+
+.campo label{
+    color: var(--blanco);
+    font-weight: bolder;      
+    margin-bottom: .6rem;
+    display: flex;
+}
+
+/* .campo input[type="text"]{       
+    background-color: red;
+} */
+
+.campo textarea{
+    height: 20rem;
+}
+
+/* inputs */
+
+.input-text-correo{
+    width: 92%;
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem; /* Esquinas redondeadas */ 
+}
+
+.input-text-telefono{
+        width: 83.5%;
+        border: none;
+        padding: 1.5rem;
+        border-radius: .5rem; /* Esquinas redondeadas */ 
+}
+
+@media (max-width: 765px){
+    .input-text-telefono{
+            width: 92%;
+    }
+}
+
+.input-text{
+    width: 92%;        /* Toma todo el espacio disponible */
+    border: none;
+    padding: 1.5rem;
+    border-radius: .5rem; /* Esquinas redondeadas */          
+}
+
+/* Footer */
+
+.footer{
+    text-align: center;
+}    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
